@@ -63,7 +63,7 @@ class Review(models.Model):
 
 
 class Order(models.Model):
-    owner = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Покупатель')
+    owner = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Покупатель')
     products = models.ManyToManyField(to='Product', related_name='orders', verbose_name='Товары')
 
     @property

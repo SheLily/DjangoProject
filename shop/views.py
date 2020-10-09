@@ -91,6 +91,6 @@ class OrderView(LoginRequiredMixin, View):
             order.products.add(product)
 
         order.save()
-        cart.products.remove()
+        cart.products.clear()
 
         return render(request, 'shop/order.html', context=self.context)
